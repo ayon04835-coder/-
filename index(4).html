@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>𝐀𝐘𝐎𝐍☞𝐎𝐖𝐍𝐄𝐑➣💢</title>
+
+<style>
+*{box-sizing:border-box}
+
+:root{
+ --bg:#080a09;
+ --header:#080a09;
+ --card:#101412;
+ --text:#f5f5f5;
+ --muted:#aebbb8;
+ --border:rgba(77,220,190,.18);
+ --green:#20c997;
+ --green2:#0786a0;
+ --soft:#dff8f2;
+}
+
+body{
+ margin:0;
+ background:radial-gradient(circle at top,#151b19,#080a09 45%,#050605);
+ color:var(--text);
+ font-family:Arial,sans-serif;
+ transition:.3s;
+}
+
+body.light{
+ --bg:#f4f7f6;
+ --header:#ffffff;
+ --card:#ffffff;
+ --text:#17201e;
+ --muted:#65736f;
+ --border:rgba(0,120,100,.2);
+ --soft:#08745f;
+
+ background:#f4f7f6;
+ color:var(--text);
+}
+
+header{
+ padding:15px;
+ display:flex;
+ align-items:center;
+ border-bottom:1px solid var(--border);
+ background:var(--header);
+ transition:.3s;
+}
+
+.brand{
+ display:flex;
+ align-items:center;
+ gap:10px;
+}
+
+.profile{
+ width:42px;
+ height:42px;
+ border-radius:50%;
+ object-fit:cover;
+ border:2px solid #8de5d0;
+ box-shadow:0 0 15px rgba(77,220,190,.2);
+}
+
+.name{
+ color:var(--soft);
+ font-weight:bold;
+ font-size:15px;
+ letter-spacing:.4px;
+}
+
+.top-buttons{
+ margin-left:auto;
+ display:flex;
+ align-items:center;
+ gap:8px;
+}
+
+.telegram,
+.mode{
+ width:42px;
+ height:42px;
+ border-radius:50%;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ border:0;
+ text-decoration:none;
+ cursor:pointer;
+}
+
+.telegram{
+ background:linear-gradient(145deg,#35bdf2,#087bb8);
+ animation:pulse 1.6s infinite;
+}
+
+.telegram svg{
+ width:23px;
+ fill:#fff;
+}
+
+.mode{
+ background:linear-gradient(145deg,#202927,#0b1513);
+ border:1px solid #287d6b;
+ color:#bff8e9;
+ font-size:20px;
+ box-shadow:0 4px 15px rgba(0,0,0,.35);
+}
+
+body.light .mode{
+ background:linear-gradient(145deg,#e7f8f4,#c9eee5);
+ color:#08745f;
+}
+
+@keyframes pulse{
+ 0%{box-shadow:0 0 0 0 rgba(24,164,226,.65)}
+ 70%{box-shadow:0 0 0 11px rgba(24,164,226,0)}
+ 100%{box-shadow:0 0 0 0 rgba(24,164,226,0)}
+}
+
+.clock{
+ text-align:center;
+ margin:12px 0;
+ color:var(--muted);
+ font-size:12px;
+}
+
+h2{
+ text-align:center;
+ color:var(--soft);
+ font-size:17px;
+ margin:16px 0 12px;
+ letter-spacing:1px;
+}
+
+.categories{
+ display:flex;
+ gap:8px;
+ overflow-x:auto;
+ padding:0 12px 14px;
+}
+
+.categories button{
+ flex:0 0 auto;
+ padding:8px 18px;
+ border-radius:25px;
+ border:1px solid #287d6b;
+ background:linear-gradient(145deg,#142a25,#0b1714);
+ color:#bff8e9;
+ font-size:12px;
+ font-weight:bold;
+ box-shadow:0 4px 15px rgba(0,0,0,.4);
+}
+
+.categories button.active{
+ background:linear-gradient(135deg,#22b995,#08745f);
+ border-color:#4de0bf;
+ color:#fff;
+ box-shadow:0 0 18px rgba(34,185,149,.35);
+}
+
+body.light .categories button{
+ background:#fff;
+ color:#08745f;
+}
+
+body.light .categories button.active{
+ background:linear-gradient(135deg,#20c997,#0786a0);
+ color:#fff;
+}
+
+.grid{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:10px;
+ padding:10px;
+}
+
+.card{
+ background:var(--card);
+ border:1px solid var(--border);
+ border-radius:12px;
+ overflow:hidden;
+ box-shadow:0 6px 18px rgba(0,0,0,.18);
+ transition:.3s;
+}
+
+.card img{
+ width:100%;
+ aspect-ratio:1/1;
+ object-fit:cover;
+ display:block;
+}
+
+.card-body{
+ padding:8px;
+}
+
+.card h3{
+ margin:0 0 5px;
+ color:var(--soft);
+ font-size:13px;
+ white-space:nowrap;
+ overflow:hidden;
+ text-overflow:ellipsis;
+}
+
+.card p{
+ margin:0 0 8px;
+ color:var(--muted);
+ font-size:10px;
+ line-height:1.4;
+ height:28px;
+ overflow:hidden;
+}
+
+.card a{
+ display:block;
+ text-align:center;
+ text-decoration:none;
+ padding:7px 5px;
+ border-radius:7px;
+ background:linear-gradient(135deg,#20c997,#0786a0);
+ border:1px solid rgba(91,240,218,.45);
+ color:#fff;
+ font-size:10px;
+ font-weight:bold;
+ letter-spacing:.6px;
+ box-shadow:0 4px 14px rgba(0,130,120,.25);
+}
+
+.empty{
+ grid-column:1/-1;
+ text-align:center;
+ color:var(--muted);
+ padding:45px 10px;
+ font-size:13px;
+}
+
+@media(max-width:600px){
+ .grid{
+  grid-template-columns:repeat(3,1fr);
+  gap:7px;
+  padding:7px;
+ }
+
+ .card-body{
+  padding:6px;
+ }
+
+ .card h3{
+  font-size:11px;
+ }
+
+ .card p{
+  font-size:9px;
+  height:25px;
+ }
+
+ .card a{
+  font-size:9px;
+  padding:6px 3px;
+ }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+ <div class="brand">
+
+  <img
+   class="profile"
+   id="profileImage"
+   src="https://placehold.co/100x100"
+   alt="Profile"
+  >
+
+  <div class="name" id="ownerName">𝐀𝐘𝐎𝐍☞𝐎𝐖𝐍𝐄𝐑➣💢</div>
+
+ </div>
+
+ <div class="top-buttons">
+
+  <a
+   class="telegram"
+   id="telegramLink"
+   href="https://t.me/your_channel"
+   target="_blank"
+   aria-label="Telegram"
+  >
+   <svg viewBox="0 0 24 24">
+    <path d="M21.9 3.2 18.6 20c-.25 1.19-.92 1.48-1.87.92l-5.13-3.78-2.47 2.38c-.27.27-.5.5-1.02.5l.37-5.23 9.51-8.59c.41-.37-.09-.58-.64-.21L5.59 13.37.51 11.78c-1.1-.34-1.12-1.1.23-1.6L20.6 2.58c.92-.34 1.73.21 1.3.62z"/>
+   </svg>
+  </a>
+
+  <button
+   class="mode"
+   id="modeButton"
+   onclick="toggleMode()"
+   aria-label="Dark and Light Mode"
+  >💢️</button>
+
+ </div>
+
+</header>
+
+<div class="clock" id="clock"></div>
+
+<h2>AVAILABLE WORK</h2>
+
+<div class="categories" id="categories"></div>
+
+<div class="grid" id="posts"></div>
+
+
+<!-- =========================================================
+     FIREBASE CONFIG
+     
+     Firebase Console থেকে আপনার Web App-এর তথ্য এখানে বসাবেন।
+     ========================================================= -->
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+ getFirestore,
+ collection,
+ onSnapshot,
+ doc,
+ onSnapshot as onDocSnapshot
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* =========================================================
+   আপনার Firebase information এখানে বসাবেন
+   ========================================================= */
+
+const firebaseConfig = {
+
+ apiKey: "AIzaSyD7jKNHvomZSp_CZWlkbTJcATelXlq61rg",
+
+ authDomain: "rs-ayon-owner.firebaseapp.com",
+
+ projectId: "rs-ayon-owner",
+
+ storageBucket: "rs-ayon-owner.firebasestorage.app",
+
+ messagingSenderId: "320411702855",
+
+ appId: "1:320411702855:web:0e27509bc227941fe18362"
+
+};
+
+
+/* =========================================================
+   Firebase শুরু
+   ========================================================= */
+
+let firebaseReady=false;
+let db=null;
+
+try{
+
+ const app=initializeApp(firebaseConfig);
+
+ db=getFirestore(app);
+
+ firebaseReady=true;
+
+}catch(error){
+
+ console.error("Firebase connection error:",error);
+
+}
+
+
+/* =========================================================
+   Website data
+   ========================================================= */
+
+let categories=["ALL"];
+
+let posts=[];
+
+let current="ALL";
+
+
+/* =========================================================
+   Categories Firebase থেকে নেওয়া
+   Collection: categories
+   ========================================================= */
+
+if(firebaseReady){
+
+ onSnapshot(
+  collection(db,"categories"),
+  function(snapshot){
+
+   categories=["ALL"];
+
+   snapshot.forEach(function(item){
+
+    const data=item.data();
+
+    if(
+     data.name &&
+     !categories.includes(data.name)
+    ){
+
+     categories.push(data.name);
+
+    }
+
+   });
+
+   if(!categories.includes(current)){
+
+    current="ALL";
+
+   }
+
+   render();
+
+  },
+  function(error){
+
+   console.error(
+    "Categories loading error:",
+    error
+   );
+
+   render();
+
+  }
+ );
+
+}
+
+
+/* =========================================================
+   Posts Firebase থেকে নেওয়া
+   Real-time update হবে
+   Collection: posts
+   ========================================================= */
+
+if(firebaseReady){
+
+ onSnapshot(
+  collection(db,"posts"),
+  function(snapshot){
+
+   posts=[];
+
+   snapshot.forEach(function(item){
+
+    const data=item.data();
+
+    posts.push({
+
+     id:item.id,
+
+     title:data.title || "",
+
+     description:data.description || "",
+
+     image:data.image || "https://placehold.co/500x500",
+
+     url:data.url || "#",
+
+     category:data.category || "ALL",
+
+     createdAt:data.createdAt || null
+
+    });
+
+   });
+
+
+   /* নতুন Post আগে দেখানোর জন্য */
+
+   posts.sort(function(a,b){
+
+    const aTime=
+     a.createdAt &&
+     typeof a.createdAt.toMillis==="function"
+      ?a.createdAt.toMillis()
+      :0;
+
+    const bTime=
+     b.createdAt &&
+     typeof b.createdAt.toMillis==="function"
+      ?b.createdAt.toMillis()
+      :0;
+
+    return bTime-aTime;
+
+   });
+
+
+   render();
+
+  },
+  function(error){
+
+   console.error(
+    "Posts loading error:",
+    error
+   );
+
+   render();
+
+  }
+ );
+
+}
+
+
+/* =========================================================
+   Website Settings Firebase থেকে নেওয়া
+
+   Collection:
+   settings
+
+   Document:
+   site
+
+   চাইলে Admin Panel থেকে এগুলোও পরিবর্তন করা যাবে।
+   ========================================================= */
+
+if(firebaseReady){
+
+ onDocSnapshot(
+  doc(db,"settings","site"),
+  function(snapshot){
+
+   if(!snapshot.exists()) return;
+
+   const data=snapshot.data();
+
+
+   if(data.ownerName){
+
+    document.getElementById(
+     "ownerName"
+    ).textContent=data.ownerName;
+
+   }
+
+
+   if(data.profile){
+
+    document.getElementById(
+     "profileImage"
+    ).src=data.profile;
+
+   }
+
+
+   if(data.telegram){
+
+    document.getElementById(
+     "telegramLink"
+    ).href=data.telegram;
+
+   }
+
+  },
+  function(error){
+
+   console.error(
+    "Settings loading error:",
+    error
+   );
+
+  }
+ );
+
+}
+
+
+/* =========================================================
+   Categories Render
+   ========================================================= */
+
+function renderCategories(){
+
+ const box=document.getElementById("categories");
+
+ box.innerHTML="";
+
+ categories.forEach(function(category){
+
+  const button=document.createElement("button");
+
+  button.textContent=category;
+
+  if(category===current){
+
+   button.className="active";
+
+  }
+
+  button.onclick=function(){
+
+   current=category;
+
+   render();
+
+  };
+
+  box.appendChild(button);
+
+ });
+
+}
+
+
+/* =========================================================
+   Posts Render
+   ========================================================= */
+
+function renderPosts(){
+
+ const box=document.getElementById("posts");
+
+ box.innerHTML="";
+
+
+ const list=
+  current==="ALL"
+   ?posts
+   :posts.filter(function(post){
+
+    return post.category===current;
+
+   });
+
+
+ if(!list.length){
+
+  box.innerHTML=
+   '<div class="empty">No work available</div>';
+
+  return;
+
+ }
+
+
+ list.forEach(function(post){
+
+  const card=document.createElement("div");
+
+  card.className="card";
+
+
+  const image=document.createElement("img");
+
+  image.src=post.image;
+
+  image.alt="";
+
+  image.onerror=function(){
+
+   this.src="https://placehold.co/500x500";
+
+  };
+
+
+  const body=document.createElement("div");
+
+  body.className="card-body";
+
+
+  const title=document.createElement("h3");
+
+  title.textContent=post.title;
+
+
+  const description=document.createElement("p");
+
+  description.textContent=post.description;
+
+
+  const link=document.createElement("a");
+
+  link.href=post.url;
+
+  link.target="_blank";
+
+  link.rel="noopener noreferrer";
+
+  link.textContent="OPEN";
+
+
+  body.appendChild(title);
+
+  body.appendChild(description);
+
+  body.appendChild(link);
+
+  card.appendChild(image);
+
+  card.appendChild(body);
+
+  box.appendChild(card);
+
+ });
+
+}
+
+
+/* =========================================================
+   Main Render
+   ========================================================= */
+
+function render(){
+
+ renderCategories();
+
+ renderPosts();
+
+}
+
+
+/* =========================================================
+   Clock
+   ========================================================= */
+
+function updateClock(){
+
+ const now=new Date();
+
+ document.getElementById("clock").textContent=
+  now.toLocaleDateString()+" • "+
+  now.toLocaleTimeString();
+
+}
+
+
+/* =========================================================
+   Dark / Light Mode
+   ========================================================= */
+
+window.toggleMode=function(){
+
+ document.body.classList.toggle("light");
+
+ const light=
+  document.body.classList.contains("light");
+
+ document.getElementById("modeButton").textContent=
+  light ? "🌙" : "💢";
+
+ localStorage.setItem(
+  "siteMode",
+  light ? "light" : "dark"
+ );
+
+};
+
+
+if(localStorage.getItem("siteMode")==="light"){
+
+ document.body.classList.add("light");
+
+ document.getElementById(
+  "modeButton"
+ ).textContent="🌙";
+
+}
+
+
+/* =========================================================
+   Start
+   ========================================================= */
+
+setInterval(updateClock,1000);
+
+updateClock();
+
+render();
+
+</script>
+
+</body>
+</html>
